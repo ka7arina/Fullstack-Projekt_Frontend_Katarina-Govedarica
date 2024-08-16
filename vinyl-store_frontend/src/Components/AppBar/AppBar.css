@@ -1,0 +1,58 @@
+/* SearchAppBar.css */
+.search {
+    position: relative;
+    border-radius: var(--theme-shape-border-radius);
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: background-color 0.3s;
+  }
+  
+  .search:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  
+  .search.sm {
+    margin-left: var(--theme-spacing-1);
+    width: auto;
+  }
+  
+  .searchIconWrapper {
+    padding: 0 var(--theme-spacing-2);
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .styledInputBase {
+    color: inherit;
+    width: 100%;
+  }
+  
+  .styledInputBase .MuiInputBase-input {
+    padding: var(--theme-spacing-1) var(--theme-spacing-1) var(--theme-spacing-1) 0;
+    padding-left: calc(1em + var(--theme-spacing-4));
+    transition: width 0.3s;
+  }
+  
+  .styledInputBase .MuiInputBase-input.sm {
+    width: 12ch;
+  }
+  
+  .styledInputBase .MuiInputBase-input.sm:focus {
+    width: 20ch;
+  }
+
+  .appBar {
+    width: 100%;
+    position: static; /* Or sticky, if you want it to stick to the top when scrolling */
+    top: 0;
+  }
+  
+  .customAppBar {
+    background-color: #fff;
+    border: 2px solid #49243E;
+    box-shadow: none;
+  }
+  
