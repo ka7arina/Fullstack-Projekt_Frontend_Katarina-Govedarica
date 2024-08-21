@@ -46,7 +46,7 @@
 
   .appBar {
     width: 100%;
-    position: static; /* Or sticky, if you want it to stick to the top when scrolling */
+    position: sticky; 
     top: 0;
   }
   

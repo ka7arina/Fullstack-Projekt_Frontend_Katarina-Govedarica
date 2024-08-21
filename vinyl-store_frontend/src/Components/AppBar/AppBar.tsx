@@ -66,7 +66,7 @@ export default function SearchAppBar() {
     <ThemeProvider theme={theme}>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
-          position="static"
+          position="sticky"
           sx={{
             backgroundColor: '#fff', 
             border: '2px solid',      
@@ -90,7 +90,7 @@ export default function SearchAppBar() {
               component="div"
               sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, color: '#030303' }}
             >
-              Musik Hug
+              Vinyl Store
             </Typography>
             <Search>
             <SearchIconWrapper>
