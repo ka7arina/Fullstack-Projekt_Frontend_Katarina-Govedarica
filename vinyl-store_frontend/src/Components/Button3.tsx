@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button } from '@mui/material';
-import './Buttons.css';
 import { useNavigate } from 'react-router-dom';
+import shopcart from './shoppingcart.png'; 
 
-const TheButton: React.FC = () => {
+const CartButton: React.FC = () => {
   const navigate = useNavigate();
 
   return (
@@ -11,19 +11,29 @@ const TheButton: React.FC = () => {
       className='overlay-button'
       variant="contained"
       onClick={() => navigate('/shortnsweet')}
-      size="large"
+      size="small"
       sx={{
-        backgroundColor: '#234c9b',
         color: '#fff',
+        width: '40px', 
+        height: '40px', 
+        minWidth: '40px', 
+        padding: 0,
+        display: 'flex',
+        alignItems: 'top',
+        justifyContent: 'top',
         '&:hover': {
           backgroundColor: '#234c9b',
           color: '#fff',
         },
       }}
     >
-      Shop The Collection
+      <img 
+        src={shopcart} 
+        alt="Shopping Cart" 
+        style={{ width: '20px', height: '20px' }} 
+      />
     </Button>
   );
 }
 
-export default TheButton;
+export default CartButton;

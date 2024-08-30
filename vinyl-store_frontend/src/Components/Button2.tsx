@@ -1,29 +1,30 @@
 import React from 'react';
 import { Button } from '@mui/material';
-import './Buttons.css';
+import './Button2.css';
 import { useNavigate } from 'react-router-dom';
 
-const TheButton: React.FC = () => {
+const ContactButton: React.FC = () => {
   const navigate = useNavigate();
 
   return (
     <Button
       className='overlay-button'
-      variant="contained"
+      variant="outlined"
       onClick={() => navigate('/shortnsweet')}
       size="large"
       sx={{
-        backgroundColor: '#234c9b',
-        color: '#fff',
+        color: '#234c9b',
+        marginTop: 57,
+        width: '220px',
         '&:hover': {
           backgroundColor: '#234c9b',
           color: '#fff',
         },
       }}
     >
-      Shop The Collection
+Contact
     </Button>
   );
 }
 
-export default TheButton;
+export default ContactButton;

@@ -1,29 +1,32 @@
 import React from 'react';
 import { Button } from '@mui/material';
-import './Buttons.css';
+import './Button4.css';
 import { useNavigate } from 'react-router-dom';
 
-const TheButton: React.FC = () => {
+const CheckoutButton: React.FC = () => {
   const navigate = useNavigate();
 
   return (
     <Button
       className='overlay-button'
       variant="contained"
-      onClick={() => navigate('/shortnsweet')}
+      disableElevation
+      onClick={() => navigate('/checkout')}
       size="large"
       sx={{
         backgroundColor: '#234c9b',
         color: '#fff',
+        width: '220px',
+        marginTop: 3,
         '&:hover': {
           backgroundColor: '#234c9b',
           color: '#fff',
         },
       }}
     >
-      Shop The Collection
+Checkout →
     </Button>
   );
 }
 
-export default TheButton;
+export default CheckoutButton;

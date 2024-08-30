@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import AppBar from './Components/AppBar/AppBar';
 import './VinylList.css';
@@ -38,6 +38,7 @@ interface Vinyl {
 
 const VinylList: React.FC = () => {
   const [vinyls, setVinyls] = useState<Vinyl[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get('http://localhost:8080/vinyls')
@@ -53,45 +54,55 @@ const VinylList: React.FC = () => {
     <div>
       <AppBar />
       <div className="image-container">
-        <img src='src/assets/frontimage.jpeg' alt="Vinyl Records" className="background-image" />
+        <img src='src/assets/shortnsweet.jpg' alt="Vinyl Records" className="background-image" />
         <div className="overlay">
           <TheButton />
         </div>
-        <h1 className="title">Vinyl - A Collab</h1>
+        <h1 className="title">Short N' Sweet</h1>
       </div>
 
-      <div onClick={() => alert("Hello from here")}>
-      <Box sx={{ padding: 2 }}>
-        <Grid container spacing={3}>
-          {vinyls.map(vinyl => (
-            <Grid item key={vinyl.id} xs={12} sm={6} md={4} lg={3}>
-              <Card className="vinylCard" sx={{ marginBottom: 2, maxWidth: 400 }}>
-                <CardContent>
-                  <Box display="flex" justifyContent="space-between" alignItems="center">
-                    <div>
-                      <img src={`http://localhost:8080/images/${vinyl.imageFilePath.split('/').pop()}`}
-                          alt={`${vinyl.title} cover`}
-                          width="100%"/>
-                    </div>
-                  </Box>
-                  <Typography component="div" align="left">
-                    {vinyl.title} [Yellow LP]
-                  </Typography>
-                  <Typography component="div" align="left">
-                    {vinyl.artist.name}
-                  </Typography>
-                  <Box marginTop="5%">
-                  <Typography component="div" align="left">
-                    {vinyl.price}
-                  </Typography>
-
-                  </Box>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+      <div>
+        <Box sx={{ padding: 3 }} >
+          <Grid container spacing={2}>
+            {vinyls.map((vinyl) => (
+              <Grid item key={vinyl.id} xs={12} sm={6} md={4} lg={3}>
+                <Card className="vinylCard" sx={{ marginBottom: 2, width: '100%' }}>
+                  <CardContent>
+                    <Box 
+                      display="flex" 
+                      justifyContent="space-between" 
+                      alignItems="center"
+                      onClick={() => navigate(`/vinyl/${vinyl.id}`)} 
+                      style={{ cursor: 'pointer' }}>
+                      <div>
+                        <img src={`http://localhost:8080/images/${vinyl.imageFilePath.split('/').pop()}`}
+                            alt={`${vinyl.title} cover`}
+                            width="100%"/>
+                      </div>
+                    </Box>
+                    <Box
+                      onClick={() => navigate(`/vinyl/${vinyl.id}`)} 
+                      style={{ cursor: 'pointer' }}>
+                      <Typography component="div" align="left">
+                        {vinyl.title}
+                      </Typography>
+                      <Typography component="div" align="left">
+                        {vinyl.artist.name}
+                      </Typography>
+                    </Box>
+                    <Box marginTop="5%"
+                          onClick={() => navigate(`/vinyl/${vinyl.id}`)} 
+                          style={{ cursor: 'pointer' }}>
+                      <Typography component="div" align="left">
+                        ${vinyl.price}
+                      </Typography>
+                    </Box>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
       </div>
     </div>
   );
