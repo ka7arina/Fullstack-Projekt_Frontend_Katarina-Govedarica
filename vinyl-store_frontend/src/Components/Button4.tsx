@@ -7,6 +7,7 @@ const CheckoutButton: React.FC = () => {
   const navigate = useNavigate();
 
   return (
+    <div>
     <Button
       className='overlay-button'
       variant="contained"
@@ -26,6 +27,26 @@ const CheckoutButton: React.FC = () => {
     >
 Checkout →
     </Button>
+    <Button
+      className='overlay-button'
+      variant="contained"
+      disableElevation
+      onClick={() => navigate('/cart')}
+      size="small"
+      sx={{
+        backgroundColor: '#234c9b',
+        color: '#fff',
+        width: '220px',
+        marginTop: 0.3,
+        '&:hover': {
+          backgroundColor: '#234c9b',
+          color: '#fff',
+        },
+      }}
+    >
+View Cart →
+    </Button>
+    </div>
   );
 }
 
