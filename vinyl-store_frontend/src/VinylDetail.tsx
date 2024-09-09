@@ -59,7 +59,7 @@ const VinylDetail: React.FC = () => {
 <Box sx={{ width: 250 }} role="presentation" onClick={() => toggleDrawer(false)}>
   <List>
     <Typography variant="h5" marginTop='10px' marginLeft='15px'>
-      View your cart
+      Your Cart
     </Typography>
           <Box >
         <img 
@@ -138,7 +138,6 @@ const VinylDetail: React.FC = () => {
                     }}
                   >  Add to Cart 
                      <AddShoppingCartIcon fontSize="medium" />
-                    
                   </IconButton>
                 </Box>
               </CardContent>

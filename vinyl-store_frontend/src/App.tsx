@@ -4,6 +4,7 @@ import VinylList from './VinylList';
 import VinylDetail from './VinylDetail';
 import NewCollection from './NewCollection';
 import Checkout from './Checkout';
+import Cart from './Cart';
 
 const App: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const App: React.FC = () => {
           <Route path="/vinyl/:id" element={<VinylDetail />} />
           <Route path="/shortnsweet" element={<NewCollection />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
     </Router>
